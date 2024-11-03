@@ -4,10 +4,10 @@ namespace AdventOfCode._2015;
 
 public sealed class Day2
 {
-    public int Solve1()
+    public int Solve1(string input)
     {
         var result = 0;
-        var values = Parse();
+        var values = Parse(input);
 
         foreach ( (int l, int w, int h) in values )
         {
@@ -21,17 +21,13 @@ public sealed class Day2
         return result;
     }
 
-    public int Solve2()
+    public int Solve2(string input)
     {
         var result = 0;
-        var values = Parse();
+        var values = Parse(input);
 
         foreach ((int l, int w, int h) in values)
         {
-            var side1 = l * w;
-            var side2 = l * h;
-            var side3 = w * h;
-
             result += 2 * (l + w);
             result += l * w * h;
         }
@@ -39,29 +35,26 @@ public sealed class Day2
         return result;
     }
 
-    private List<(int, int, int)> Parse()
-    {
-        return Input
+    private List<(int, int, int)> Parse(string input) => input
             .Split(Environment.NewLine)
             .Select(ParseValues)
             .ToList();
-    }
 
     private (int, int, int) ParseValues(string input)
     {
         var values = input.Split('x')
             .Select(int.Parse)
             .Order()
-            .ToList();
+            .ToArray();
 
         return (values[0], values[1], values[2]);
     }
 
     [Fact]
-    public void Test1() => Assert.Equal(1598415, Solve1());
+    public void Test1() => Assert.Equal(1598415, Solve1(Input));
 
     [Fact]
-    public void Test2() => Assert.Equal(3812909, Solve2());
+    public void Test2() => Assert.Equal(3812909, Solve2(Input));
 
     private const string Input = @"4x23x21
 22x29x19
