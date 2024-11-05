@@ -15,7 +15,7 @@ public sealed class Day8
     {
         s = s[1..^1];
 
-        return Regex.Unescape(s[1..^1]).Length;
+        return Regex.Unescape(s).Length;
     }
 
     private static int EncodedLength(string s)
