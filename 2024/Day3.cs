@@ -7,8 +7,7 @@ public sealed class Day3
 {
     public int Solve1(string input)
     {
-        var pattern = @"mul\((\d+),(\d+)\)";
-        var matches = Regex.Matches(input, pattern);
+        var matches = Regex.Matches(input, @"mul\((\d+),(\d+)\)");
 
         var result = 0;
 
@@ -24,16 +23,13 @@ public sealed class Day3
 
     public int Solve2(string input)
     {
-        var pattern = @"mul\((\d+),(\d+)\)|do\(\)|don't\(\)";
-        var matches = Regex.Matches(input, pattern);
+        var matches = Regex.Matches(input, @"mul\((\d+),(\d+)\)|do\(\)|don't\(\)");
 
         var result = 0;
         bool isEnabled = true;
 
         foreach (Match match in matches)
         {
-            var value = match.Value;
-
             switch (match.Value)
             {
                 case "do()":
