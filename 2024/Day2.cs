@@ -55,10 +55,7 @@ public sealed class Day2
     private static List<List<int>> Parse(string input) =>
         input
             .Split(Environment.NewLine)
-            .Select(x => x
-                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToList())
+            .Select(x => Utils.ParseList<int>(x, ' '))
             .ToList();
 
     [Fact]

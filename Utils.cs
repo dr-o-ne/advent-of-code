@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode;
 
-public static class Utils
+public static partial class Utils
 {
     public static List<List<T>> Permute<T>(List<T> items)
     {
