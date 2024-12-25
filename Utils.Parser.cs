@@ -1,23 +1,29 @@
-﻿using System.ComponentModel;
-
-namespace AdventOfCode;
+﻿namespace AdventOfCode;
 
 public static partial class Utils
 {
     public static List<T> ParseList<T>(string input, char separator) =>
         input
             .Split(separator, StringSplitOptions.RemoveEmptyEntries)
-            .Select(x => (T)ConvertToType(x, typeof(T)))
+            .Select(ConvertToType<T>)
             .ToList();
 
-    private static object ConvertToType(string input, Type targetType)
+    public static T[,] ParseMatrix<T>(string input)
     {
-        var converter = TypeDescriptor.GetConverter(targetType);
-        if (converter != null && converter.IsValid(input))
+        var rows = input.Split(Environment.NewLine);
+        var result = new T[rows.Length, rows[0].Length];
+
+        for (int y = 0; y < rows.Length; y++)
         {
-            return converter.ConvertFromString(input)!;
+            for (int x = 0; x < rows[0].Length; x++)
+            {
+                result[y, x] = ConvertToType<T>(rows[y][x]);
+            }
         }
 
-        throw new InvalidOperationException($"Cannot convert '{input}' to type {targetType.Name}");
+        return result;
     }
+
+    private static T ConvertToType<T>(object input) =>
+        (T)Convert.ChangeType(input, typeof(T));
 }

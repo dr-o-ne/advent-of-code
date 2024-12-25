@@ -8,7 +8,7 @@ public sealed class Day4
 
     public int Solve1(string input)
     {
-        var matrix = Parse(input);
+        var matrix = Utils.ParseMatrix<char>(input);
 
         var result = 0;
 
@@ -49,7 +49,7 @@ public sealed class Day4
 
     public int Solve2(string input)
     {
-        var matrix = Parse(input);
+        var matrix = Utils.ParseMatrix<char>(input);
 
         var result = 0;
 
@@ -89,22 +89,6 @@ public sealed class Day4
             {
             }
         }
-    }
-
-    private static char[,] Parse(string input)
-    {
-        var rows = input.Split(Environment.NewLine);
-        var result = new char[rows.Length, rows[0].Length];
-
-        for(int y = 0; y < rows.Length; y++)
-        {
-            for(int x = 0; x < rows[0].Length; x++)
-            {
-                result[y, x] = rows[y][x];
-            }
-        }
-
-        return result;
     }
 
     [Fact]

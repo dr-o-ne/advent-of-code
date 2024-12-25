@@ -6,19 +6,19 @@ public sealed class Template
 {
     public int Solve1(string input)
     {
-        throw null;
+        return int.MinValue;
     }
 
     public int Solve2(string input)
     {
-        throw null;
+        return int.MinValue;
     }
 
     [Fact]
-    public void Test1() => Assert.Equal(0, Solve1(Input));
+    public void Test1() => Assert.Equal(int.MinValue, Solve1(Input));
 
     [Fact]
-    public void Test2() => Assert.Equal(0, Solve2(Input));
+    public void Test2() => Assert.Equal(int.MinValue, Solve2(Input));
 
     private const string Input = @"";
 }
