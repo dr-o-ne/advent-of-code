@@ -2,15 +2,18 @@
 
 public static partial class Utils
 {
-    public static List<T> ParseList<T>(string input, char separator) =>
+    public static List<T> ParseList<T>(string input, string separator) =>
+        ParseList(input, separator, ConvertToType<T>);
+
+    public static List<T> ParseList<T>(string input, string separator, Func<string, T> converter) =>
         input
             .Split(separator, StringSplitOptions.RemoveEmptyEntries)
-            .Select(ConvertToType<T>)
+            .Select(converter)
             .ToList();
 
     public static T[,] ParseMatrix<T>(string input)
     {
-        var rows = input.Split(Environment.NewLine);
+        var rows = input.Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
         var result = new T[rows.Length, rows[0].Length];
 
         for (int y = 0; y < rows.Length; y++)
@@ -24,6 +27,6 @@ public static partial class Utils
         return result;
     }
 
-    private static T ConvertToType<T>(object input) =>
+    private static T ConvertToType<T>(string input) =>
         (T)Convert.ChangeType(input, typeof(T));
 }

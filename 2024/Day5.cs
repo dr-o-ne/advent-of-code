@@ -95,14 +95,14 @@ public sealed class Day5
             }
             if (isRule)
             {
-                var pair = Utils.ParseList<int>(row, '|');
+                var pair = Utils.ParseList<int>(row, "|");
                 if (!restrictions.ContainsKey(pair[1]))
                     restrictions[pair[1]] = [];
                 restrictions[pair[1]].Add(pair[0]);
             }
             else
             {
-                sequences.Add(Utils.ParseList<int>(row, ','));
+                sequences.Add(Utils.ParseList<int>(row, ","));
             }
         }
 
