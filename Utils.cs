@@ -11,6 +11,17 @@ public static partial class Utils
         return acc;
     }
 
+    public static IEnumerable<(T, T)> Pairs<T>(List<T> items)
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            for (int j = i + 1; j < items.Count; j++)
+            {
+                yield return (items[i], items[j]);
+            }
+        }
+    }
+
     private static void Permute<T>(List<T> items, int left, int right, List<List<T>> acc)
     {
         if (left == right)

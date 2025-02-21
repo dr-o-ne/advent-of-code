@@ -4,12 +4,12 @@ namespace AdventOfCode;
 
 public sealed class Template
 {
-    public int Solve1(string input)
+    public object Solve1(string input)
     {
         return int.MinValue;
     }
 
-    public int Solve2(string input)
+    public object Solve2(string input)
     {
         return int.MinValue;
     }
