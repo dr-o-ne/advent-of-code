@@ -2,7 +2,7 @@
 
 namespace AdventOfCode.Common;
 
-public sealed class Grid2D<T> : IEnumerable<(int y, int x, T value)>
+public sealed class Grid2D<T> : IEnumerable<(int Y, int X, T Value)>
 {
     private readonly T[,] _inner;
     public int Rows { get; }
@@ -21,7 +21,7 @@ public sealed class Grid2D<T> : IEnumerable<(int y, int x, T value)>
         set => _inner[y, x] = value;
     }
 
-    public IEnumerator<(int y, int x, T value)> GetEnumerator()
+    public IEnumerator<(int Y, int X, T Value)> GetEnumerator()
     {
         for (int y = 0; y < Rows; y++)
             for (int x = 0; x < Columns; x++)
