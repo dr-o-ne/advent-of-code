@@ -1,8 +1,16 @@
 ﻿using System.Collections;
+using System.Numerics;
+using System.Text;
 
 namespace AdventOfCode.Common;
 
-public sealed class Grid2D<T> : IEnumerable<(int Y, int X, T Value)>
+public sealed record Cell2D(int Y, int X);
+
+public sealed record Cell2D<T>(int Y, int X, T Value);
+
+public sealed record Vector2D(int Y, int X);
+
+public sealed class Grid2D<T> : IEnumerable<(int Y, int X, T Value)> where T : IEqualityOperators<T, T, bool>
 {
     private readonly T[,] _inner;
     public int Rows { get; }
@@ -15,10 +23,40 @@ public sealed class Grid2D<T> : IEnumerable<(int Y, int X, T Value)>
         Columns = _inner.GetLength(1);
     }
 
+    public Grid2D(int rows, int columns, IEnumerable<Cell2D<T>> cells)
+    {
+        _inner = new T[rows, columns];
+        foreach (var cell in cells)
+            _inner[cell.Y, cell.X]  = cell.Value;
+
+        Rows = _inner.GetLength(0);
+        Columns = _inner.GetLength(1);
+    }
+
     public T this[int y, int x]
     {
         get => _inner[y, x];
         set => _inner[y, x] = value;
+    }
+
+    public string Plot(char defaultValue = ' ')
+    {
+        var sb = new StringBuilder(Rows * Columns);
+
+        for (int y = 0; y < Rows; y++)
+        {
+            for (int x = 0; x < Columns; x++)
+            {
+                if (_inner[y, x] == default)
+                    sb.Append(defaultValue);
+                else
+                    sb.Append(_inner[y, x]);
+            }
+            if (y != Rows - 1)
+                sb.AppendLine();
+        }
+        
+        return sb.ToString();
     }
 
     public IEnumerator<(int Y, int X, T Value)> GetEnumerator()
