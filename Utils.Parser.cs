@@ -20,7 +20,8 @@ public static partial class Utils
         {
             for (int x = 0; x < rows[0].Length; x++)
             {
-                result[y, x] = ConvertToType<T>(rows[y][x].ToString());
+                var value = rows[y][x].ToString();
+                result[y, x] = ConvertToType<T>(value);
             }
         }
 
