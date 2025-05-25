@@ -1,7 +1,4 @@
-﻿using AdventOfCode.Common;
-using Xunit;
-
-namespace AdventOfCode._2024;
+﻿namespace AdventOfCode._2024;
 
 using Node = (Cell2D Position, Vector2D Direction);
 

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Numerics;
-using System.Text;
-
-namespace AdventOfCode.Common;
+﻿namespace AdventOfCode.Common;
 
 public record struct Cell2D(int Y, int X)
 {

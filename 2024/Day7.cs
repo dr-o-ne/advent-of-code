@@ -1,7 +1,6 @@
-﻿using Xunit;
-using Equation = (long Result, System.Collections.Generic.Queue<int> Values);
+﻿namespace AdventOfCode._2024;
 
-namespace AdventOfCode._2024;
+using Equation = (long Result, System.Collections.Generic.Queue<int> Values);
 
 public sealed class Day7
 {

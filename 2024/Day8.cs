@@ -1,7 +1,6 @@
-﻿using Xunit;
-using Point = (int Y, int X);
+﻿namespace AdventOfCode._2024;
 
-namespace AdventOfCode._2024;
+using Point = (int Y, int X);
 
 public sealed class Day8
 {

@@ -1,8 +1,4 @@
-﻿using AdventOfCode.Common;
-using System.Text.RegularExpressions;
-using Xunit;
-
-namespace AdventOfCode._2024;
+﻿namespace AdventOfCode._2024;
 
 public sealed class Day14
 {

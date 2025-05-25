@@ -1,8 +1,4 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using Xunit;
-
-namespace AdventOfCode._2015;
+﻿namespace AdventOfCode._2015;
 
 public sealed class Day4
 {

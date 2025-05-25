@@ -1,7 +1,6 @@
-﻿using Xunit;
-using Restrictions = System.Collections.Generic.Dictionary<int, System.Collections.Generic.HashSet<int>>;
+﻿namespace AdventOfCode._2024;
 
-namespace AdventOfCode._2024;
+using Restrictions = System.Collections.Generic.Dictionary<int, System.Collections.Generic.HashSet<int>>;
 
 public sealed class Day5
 {

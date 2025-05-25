@@ -1,7 +1,4 @@
-﻿using AdventOfCode.Common;
-using Xunit;
-
-namespace AdventOfCode._2024;
+﻿namespace AdventOfCode._2024;
 
 using Region = HashSet<(int, int)>;
 

@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace AdventOfCode._2024;
+﻿namespace AdventOfCode._2024;
 
 public sealed class Day1
 {
