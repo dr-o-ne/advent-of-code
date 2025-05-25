@@ -1,6 +1,4 @@
-﻿using Xunit;
-
-namespace AdventOfCode;
+﻿namespace AdventOfCode;
 
 public sealed class Template
 {

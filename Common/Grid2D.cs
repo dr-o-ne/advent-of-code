@@ -12,6 +12,13 @@ public record struct Cell2D<T>(int Y, int X, T Value)
 
 public record struct Vector2D(int Y, int X)
 {
+    public static readonly Vector2D Up = new(-1, 0);
+    public static readonly Vector2D Right = new(0, 1);
+    public static readonly Vector2D Down = new(1, 0);
+    public static readonly Vector2D Left = new(0, -1);
+
+    public static readonly Vector2D[] Directions = { Up, Right, Down, Left };
+
     public static Vector2D Calculate(Cell2D from, Cell2D to) =>
         new (to.Y - from.Y, to.X - from.X);
 }
@@ -37,6 +44,18 @@ public sealed class Grid2D<T> : IEnumerable<(int Y, int X, T Value)> where T : I
 
         Rows = _inner.GetLength(0);
         Columns = _inner.GetLength(1);
+    }
+
+    public Grid2D(int rows, int columns, T defaultValue)
+    {
+        _inner = new T[rows, columns];
+
+        Rows = _inner.GetLength(0);
+        Columns = _inner.GetLength(1);
+
+        for(int y = 0; y < Rows; y++)
+            for(int x = 0; x < Columns; x++)
+                _inner[y, x] = defaultValue;
     }
 
     public T this[int y, int x]
