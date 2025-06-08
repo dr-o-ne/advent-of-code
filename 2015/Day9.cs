@@ -20,7 +20,7 @@ public sealed class Day9
             nodes.Add(item.To);
         }
 
-        var routes = Utils.Permute(nodes.ToList());
+        var routes = Utils.Permutations(nodes.ToList());
 
         var min = int.MaxValue;
         var max = int.MinValue;

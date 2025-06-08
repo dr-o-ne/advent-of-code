@@ -2,13 +2,36 @@
 
 public static partial class Utils
 {
-    public static List<List<T>> Permute<T>(List<T> items)
+    public static List<List<T>> Permutations<T>(List<T> items)
     {
         var acc = new List<List<T>>();
 
         Permute(items, 0, items.Count - 1, acc);
 
         return acc;
+    }
+
+    public static List<List<T>> Subsets<T>(List<T> items)
+    {
+        var count = 1 << items.Count;
+        var result = new List<List<T>>( count );
+
+        for( int i = 0; i < count; i++ )
+        {
+            var current = new List<T>();
+
+            for( int j = 0; j < items.Count; j++)
+            {
+                if ((i & (1 << j)) == 0)
+                    continue;
+
+                current.Add(items[j]);
+            }
+
+            result.Add( current );
+        }
+
+        return result;
     }
 
     public static IEnumerable<(T, T)> Pairs<T>(List<T> items)
@@ -26,7 +49,7 @@ public static partial class Utils
     {
         if (left == right)
         {
-            acc.Add(new List<T>(items));
+            acc.Add([.. items]);
             return;
         }
 
