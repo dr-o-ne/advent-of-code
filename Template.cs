@@ -13,10 +13,18 @@ public sealed class Template
     }
 
     [Fact]
-    public void Test1() => Assert.Equal(int.MinValue, Solve1(Input));
+    public void Test1() => Assert.Equal(int.MinValue, Solve1(TestInput));
 
     [Fact]
-    public void Test2() => Assert.Equal(int.MinValue, Solve2(Input));
+    public void Test2() => Assert.Equal(int.MinValue, Solve2(TestInput));
+
+    [Fact]
+    public void Test3() => Assert.Equal(int.MinValue, Solve1(Input));
+
+    [Fact]
+    public void Test4() => Assert.Equal(int.MinValue, Solve2(Input));
+
+    private const string TestInput = @"";
 
     private const string Input = @"";
 }
