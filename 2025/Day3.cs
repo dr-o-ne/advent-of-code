@@ -84,16 +84,16 @@ public class Day3
             );
 
     [Fact]
-    public void Test1() => Assert.Equal(357, Solve1(TestInput));
+    public void Test1() => Assert.Equal(357L, Solve1(TestInput));
 
     [Fact]
-    public void Test2() => Assert.Equal(17403, Solve1(Input));
+    public void Test2() => Assert.Equal(17403L, Solve1(Input));
 
     [Fact]
-    public void Test3() => Assert.Equal(3121910778619, Solve2(TestInput));
+    public void Test3() => Assert.Equal(3121910778619L, Solve2(TestInput));
 
     [Fact]
-    public void Test4() => Assert.Equal(173416889848394, Solve2(Input));
+    public void Test4() => Assert.Equal(173416889848394L, Solve2(Input));
 
     private const string TestInput = @"987654321111111
 811111111111119

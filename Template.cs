@@ -1,25 +1,26 @@
 ﻿namespace AdventOfCode;
 
+/*
 public sealed class Template
 {
     public object Solve1(string input)
     {
-        return int.MinValue;
+        throw null;
     }
 
     public object Solve2(string input)
     {
-        return int.MinValue;
+        throw null;
     }
 
     [Fact]
     public void Test1() => Assert.Equal(int.MinValue, Solve1(TestInput));
 
     [Fact]
-    public void Test2() => Assert.Equal(int.MinValue, Solve2(TestInput));
+    public void Test2() => Assert.Equal(int.MinValue, Solve1(Input));
 
     [Fact]
-    public void Test3() => Assert.Equal(int.MinValue, Solve1(Input));
+    public void Test3() => Assert.Equal(int.MinValue, Solve2(TestInput));
 
     [Fact]
     public void Test4() => Assert.Equal(int.MinValue, Solve2(Input));
@@ -28,3 +29,4 @@ public sealed class Template
 
     private const string Input = @"";
 }
+*/
